@@ -43,11 +43,26 @@ with st.echo(code_location='below'):
     st.dataframe(df.style.highlight_max(axis=0))
 
     # Chat example
-    with st.chat_message("user"):
-        st.write("Hello 👋")
-        st.line_chart(np.random.randn(30, 3))
+# Create a list to store chat messages
+chat_history = []
 
-    prompt = st.chat_input("Say something")
-    if prompt:
-        with st.chat_message("user"):
-            st.write(prompt)
+# Function to display chat messages
+def display_chat():
+    for sender, message in chat_history:
+        with st.chat_message(sender):
+            st.write(message)
+
+# User message
+with st.chat_message("user"):
+    st.write("Hello 👋")
+    st.line_chart(np.random.randn(30, 3))
+
+# Get user input
+prompt = st.chat_input("Say something")
+
+# If the user entered a message, add it to the chat history
+if prompt:
+    chat_history.append(("user", prompt))
+
+# Display the chat history
+display_chat()
