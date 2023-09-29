@@ -37,6 +37,5 @@ with st.echo(code_location='below'):
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
 
-    st.altair_chart(alt.Chart(pd.DataFrame(data), height=1000, width=1000)
-        .mark_circle(color='#0068c9', opacity=0.5)
-        .encode(x='x:Q', y='y:Q'))
+    df = pd.DataFrame(np.random.randn(10, 20), columns=("col %d" % i for i in range(20)))
+    st.dataframe(df.style.highlight_max(axis=0))
