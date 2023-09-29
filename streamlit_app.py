@@ -45,6 +45,7 @@ with st.echo(code_location='below'):
     # Chat example
     with st.chat_message("user"):
         st.write("Hello 👋")
+        st.write("Streamlit is an open-source Python library that is used for creating web applications and interactive web-based dashboards with minimal effort. It is designed to make it easy for data scientists, engineers, and developers to quickly turn data scripts into shareable web applications. Streamlit is known for its simplicity and ease of use, allowing users to create web apps with just a few lines of Python code.")
         st.line_chart(np.random.randn(30, 3))
     
     prompt = st.chat_input("Say something")
