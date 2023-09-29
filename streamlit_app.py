@@ -49,4 +49,5 @@ with st.echo(code_location='below'):
 
     prompt = st.chat_input("Say something")
     if prompt:
-        st.write(prompt)
+        with st.chat_message("user"):
+            st.write(prompt)
