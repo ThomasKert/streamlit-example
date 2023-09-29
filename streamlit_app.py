@@ -38,5 +38,15 @@ with st.echo(code_location='below'):
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
 
+    # Table with random values
     df = pd.DataFrame(np.random.randn(10, 20), columns=("col %d" % i for i in range(20)))
     st.dataframe(df.style.highlight_max(axis=0))
+
+    # Chat example
+    with st.chat_message("user"):
+        st.write("Hello 👋")
+        st.line_chart(np.random.randn(30, 3))
+
+    prompt = st.chat_input("Say something")
+    if prompt:
+        st.write(prompt)
